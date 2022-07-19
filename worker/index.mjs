@@ -32,7 +32,9 @@ import * as http from "http";
     // console.log(mycelial.log.to_vec());
     console.log(color);
     if (color === "green") {
-      http.get("http://localhost:1880/green");
+      http.get("http://localhost:1880/green", (res) => {
+        console.log(res);
+      });
     }
 
     if (color === "red") {

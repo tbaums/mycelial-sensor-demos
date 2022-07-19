@@ -33,7 +33,7 @@ import * as Websocket from "./websocket.mjs";
 
   console.log(mycelial.log.to_vec());
 
-  setInterval(() => {
-    console.log("The timer keeps the process running");
-  }, 1000 * 60 * 60);
+  //   setInterval(() => {
+  //     console.log("The timer keeps the process running");
+  //   }, 1000 * 60 * 60);
 })();
