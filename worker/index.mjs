@@ -49,7 +49,7 @@ import * as http from "http";
           agent: false, // Create a new agent just for this one request
         },
         (res) => {
-          console.log(res);
+          // console.log(res);
         }
       );
     }
@@ -63,7 +63,7 @@ import * as http from "http";
           agent: false, // Create a new agent just for this one request
         },
         (res) => {
-          console.log(res);
+          // console.log(res);
         }
       );
     }
