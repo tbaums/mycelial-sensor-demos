@@ -29,14 +29,14 @@ import * as http from "http";
     console.log("update", evt);
     // console.log(mycelial)
     const log = mycelial.log.to_vec();
-    //   console.log("color is ", color);
+    console.log("color is ", color);
     const idxs = mycelial.log.to_vec().map((i) => i[0]);
-    //   console.log("idxs", idxs);
+    console.log("idxs", idxs);
     const sortedIdxs = idxs.sort();
-    //   console.log("sortedIdxs", sortedIdxs);
+    console.log("sortedIdxs", sortedIdxs);
     const colorCheck = log.filter(
       (i) => i[0] === sortedIdxs[sortedIdxs.length - 1]
-    )[1][2];
+    )[0][2];
     console.log("Color is: ", colorCheck);
   });
 
@@ -46,16 +46,22 @@ import * as http from "http";
     console.log(mycelial.log.to_vec());
 
     const log = mycelial.log.to_vec();
-    //   console.log("color is ", color);
     const idxs = mycelial.log.to_vec().map((i) => i[0]);
-    //   console.log("idxs", idxs);
     const sortedIdxs = idxs.sort();
-    //   console.log("sortedIdxs", sortedIdxs);
-    const color = log.filter(
-      (i) => i[0] === sortedIdxs[sortedIdxs.length - 1]
-    )[1][2];
+    let entry = log.filter((i) => i[0] === sortedIdxs[sortedIdxs.length - 1]);
 
-    console.log("color is ", color);
+    entry = entry.filter((e) => e[1] !== "$id");
+
+    console.log("idxs", idxs);
+    console.log("sortedIdxs", sortedIdxs);
+    console.log("entry: ", entry);
+    let color;
+    if (entry.length > 0) {
+      if (entry[0][1] !== "$id") {
+        color = entry[0][2];
+        console.log("color is ", color);
+      }
+    }
 
     switch (color) {
       case "green":
