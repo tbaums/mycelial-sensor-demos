@@ -3,6 +3,7 @@ import path from "path";
 import fs from "fs";
 import url from "url";
 import * as Websocket from "./websocket.mjs";
+import * as http from "http";
 
 (async function () {
   const mycelial = await Mycelial.create(
@@ -28,7 +29,16 @@ import * as Websocket from "./websocket.mjs";
     console.log("update", evt);
     // console.log(mycelial)
 
-    console.log(mycelial.log.to_vec());
+    const color = mycelial.log.to_vec()[1][2];
+    // console.log(mycelial.log.to_vec());
+    console.log(mycelial.log.to_vec()[1][2]);
+    if (color === "green") {
+      http.get("http://localhost:1880/green");
+    }
+
+    if (color === "red") {
+      http.get("http://localhost1880/red");
+    }
   });
 
   mycelial.events.addEventListener("apply", (evt) => {
@@ -43,14 +53,7 @@ import * as Websocket from "./websocket.mjs";
   mycelial.commit([
     {
       $id: "id",
-      color: "red",
-    },
-  ]);
-
-  mycelial.commit([
-    {
-      $id: "id",
-      color: "blue",
+      color: "green",
     },
   ]);
 
