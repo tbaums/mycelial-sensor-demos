@@ -55,6 +55,7 @@ import * as http from "http";
     }
 
     if (color === "red") {
+      console.log("got here");
       http.get(
         {
           hostname: "localhost",
