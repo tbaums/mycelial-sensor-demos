@@ -31,19 +31,20 @@ import * as Websocket from "./websocket.mjs";
     const color = mycelial.log.to_vec()[1][2];
     // console.log(mycelial.log.to_vec());
     console.log(color);
-    // if (color === "green") {
-    //   http.get("http://localhost:1880/green");
-    // }
+    if (color === "green") {
+      http.get("http://localhost:1880/green");
+    }
 
-    // if (color === "red") {
-    //   http.get("http://localhost1880/red");
-    // }
+    if (color === "red") {
+      http.get("http://localhost1880/red");
+    }
   });
 
   mycelial.events.addEventListener("apply", (evt) => {
     console.log("apply", evt);
     // console.log(mycelial)
-    const color = mycelial.log.to_vec()[1][2];
+    const len = mycelial.log.to_vec().length;
+    const color = mycelial.log.to_vec()[len - 1][2];
     // console.log(mycelial.log.to_vec());
     console.log("color is ", color);
 
@@ -51,13 +52,6 @@ import * as Websocket from "./websocket.mjs";
   });
 
   console.log(mycelial.log.to_vec());
-
-  mycelial.commit([
-    {
-      $id: "id",
-      color: "red",
-    },
-  ]);
 
   setInterval(() => {
     console.log("The timer keeps the process running");
