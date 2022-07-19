@@ -32,13 +32,31 @@ import * as http from "http";
     // console.log(mycelial.log.to_vec());
     console.log(color);
     if (color === "green") {
-      http.get("http://localhost:1880/green", (res) => {
-        console.log(res);
-      });
+      http.get(
+        {
+          hostname: "localhost",
+          port: 1880,
+          path: "/green",
+          agent: false, // Create a new agent just for this one request
+        },
+        (res) => {
+          console.log(res);
+        }
+      );
     }
 
     if (color === "red") {
-      http.get("http://localhost1880/red");
+      http.get(
+        {
+          hostname: "localhost",
+          port: 1880,
+          path: "/red",
+          agent: false, // Create a new agent just for this one request
+        },
+        (res) => {
+          console.log(res);
+        }
+      );
     }
   });
 
