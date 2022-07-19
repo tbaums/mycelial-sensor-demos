@@ -3,7 +3,7 @@ import path from "path";
 import fs from "fs";
 import url from "url";
 import * as Websocket from "./websocket.mjs";
-// import * as http from "http";
+import * as http from "http";
 (async function () {
   const mycelial = await Mycelial.create(
     "tbaums-rpi-4",

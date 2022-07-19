@@ -30,4 +30,6 @@ import * as Websocket from "./websocket.mjs";
       color: "red",
     },
   ]);
+
+  console.log(mycelial.log.to_vec());
 });
