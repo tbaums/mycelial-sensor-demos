@@ -6,7 +6,7 @@ import * as Websocket from "./websocket.mjs";
 import * as http from "http";
 (async function () {
   const mycelial = await Mycelial.create(
-    "tbaums-rpi-4",
+    "red-green",
     Math.floor(Math.random() * 100000000),
     {
       resolver: () => {

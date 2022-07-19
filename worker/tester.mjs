@@ -6,7 +6,7 @@ import * as Websocket from "./websocket.mjs";
 // import * as http from "http";
 (async function () {
   const mycelial = await Mycelial.create(
-    "tbaums-rpi-4",
+    "red-green",
     Math.floor(Math.random() * 100000000),
     {
       resolver: () => {
@@ -26,10 +26,14 @@ import * as Websocket from "./websocket.mjs";
 
   mycelial.commit([
     {
-      $id: "id",
-      color: "red",
+      $id: "color",
+      color: "green",
     },
   ]);
 
   console.log(mycelial.log.to_vec());
-});
+
+  setInterval(() => {
+    console.log("The timer keeps the process running");
+  }, 1000 * 60 * 60);
+})();
