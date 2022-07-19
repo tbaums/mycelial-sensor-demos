@@ -27,7 +27,7 @@ import * as Websocket from "./websocket.mjs";
   mycelial.commit([
     {
       $id: "color",
-      color: "red",
+      color: "green",
     },
   ]);
 

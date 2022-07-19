@@ -37,19 +37,19 @@ import * as http from "http";
     console.log("apply", evt);
     // console.log(mycelial)
     const len = mycelial.log.to_vec().length;
-    const color = mycelial.log.to_vec()[len - 1][2];
+    const color = mycelial.log.to_vec()[1][2];
     // console.log(mycelial.log.to_vec());
     console.log("color is ", color);
     if (color === "green") {
       http.get("http://localhost:1880/green/", (res) => {
-        console.log("hit red. response code: ", res.statusCode);
+        console.log("hit green endpoint. response code: ", res.statusCode);
       });
     }
 
     if (color === "red") {
       console.log("got here");
       http.get("http://localhost:1880/red/", (res) => {
-        console.log("hit red. response code: ", res.statusCode);
+        console.log("hit red endpoint. response code: ", res.statusCode);
       });
     }
   });
