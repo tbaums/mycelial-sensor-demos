@@ -41,14 +41,14 @@ import * as http from "http";
     // console.log(mycelial.log.to_vec());
     console.log("color is ", color);
     if (color === "green") {
-      http.get("http://localhost:1880/green", (res) => {
+      http.get("http://localhost:1880/green/", (res) => {
         console.log("hit red. response code: ", res.statusCode);
       });
     }
 
     if (color === "red") {
       console.log("got here");
-      http.get("http://localhost:1880/red", (res) => {
+      http.get("http://localhost:1880/red/", (res) => {
         console.log("hit red. response code: ", res.statusCode);
       });
     }
