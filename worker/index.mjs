@@ -31,6 +31,15 @@ import * as http from "http";
     const color = mycelial.log.to_vec()[1][2];
     // console.log(mycelial.log.to_vec());
     console.log(color);
+  });
+
+  mycelial.events.addEventListener("apply", (evt) => {
+    console.log("apply", evt);
+    // console.log(mycelial)
+    const len = mycelial.log.to_vec().length;
+    const color = mycelial.log.to_vec()[len - 1][2];
+    // console.log(mycelial.log.to_vec());
+    console.log("color is ", color);
     if (color === "green") {
       http.get(
         {
@@ -58,17 +67,6 @@ import * as http from "http";
         }
       );
     }
-  });
-
-  mycelial.events.addEventListener("apply", (evt) => {
-    console.log("apply", evt);
-    // console.log(mycelial)
-    const len = mycelial.log.to_vec().length;
-    const color = mycelial.log.to_vec()[len - 1][2];
-    // console.log(mycelial.log.to_vec());
-    console.log("color is ", color);
-
-    console.log(mycelial.log.to_vec());
   });
 
   console.log(mycelial.log.to_vec());
