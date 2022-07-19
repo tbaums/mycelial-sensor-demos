@@ -30,19 +30,22 @@ import * as Websocket from "./websocket.mjs";
 
     const color = mycelial.log.to_vec()[1][2];
     // console.log(mycelial.log.to_vec());
-    console.log(mycelial.log.to_vec()[1][2]);
-    if (color === "green") {
-      // http.get("http://localhost:1880/green");
-    }
+    console.log(color);
+    // if (color === "green") {
+    //   http.get("http://localhost:1880/green");
+    // }
 
-    if (color === "red") {
-      // http.get("http://localhost1880/red");
-    }
+    // if (color === "red") {
+    //   http.get("http://localhost1880/red");
+    // }
   });
 
   mycelial.events.addEventListener("apply", (evt) => {
     console.log("apply", evt);
     // console.log(mycelial)
+    const color = mycelial.log.to_vec()[1][2];
+    // console.log(mycelial.log.to_vec());
+    console.log("color is ", color);
 
     console.log(mycelial.log.to_vec());
   });
@@ -52,7 +55,7 @@ import * as Websocket from "./websocket.mjs";
   mycelial.commit([
     {
       $id: "id",
-      color: "green",
+      color: "red",
     },
   ]);
 
