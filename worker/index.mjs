@@ -3,7 +3,7 @@ import path from "path";
 import fs from "fs";
 import url from "url";
 import * as Websocket from "./websocket.mjs";
-import * as http from "http";
+// import * as http from "http";
 (async function () {
   const mycelial = await Mycelial.create(
     "tbaums-rpi-4",
@@ -32,11 +32,11 @@ import * as http from "http";
     // console.log(mycelial.log.to_vec());
     console.log(mycelial.log.to_vec()[1][2]);
     if (color === "green") {
-      http.get("http://localhost:1880/green");
+      // http.get("http://localhost:1880/green");
     }
 
     if (color === "red") {
-      http.get("http://localhost1880/red");
+      // http.get("http://localhost1880/red");
     }
   });
 
