@@ -38,7 +38,7 @@ import * as http from "http";
     // console.log(mycelial)
     const len = mycelial.log.to_vec().length;
     const color = mycelial.log.to_vec()[1][2];
-    // console.log(mycelial.log.to_vec());
+    console.log(mycelial.log.to_vec());
     console.log("color is ", color);
     if (color === "green") {
       http.get("http://localhost:1880/green/", (res) => {
