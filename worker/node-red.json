@@ -1,0 +1,336 @@
+[
+    {
+        "id": "8ec7ab420c8d15bb",
+        "type": "tab",
+        "label": "Flow 2",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "de4eb84c9b4b010f",
+        "type": "group",
+        "z": "8ec7ab420c8d15bb",
+        "style": {
+            "stroke": "#999999",
+            "stroke-opacity": "1",
+            "fill": "none",
+            "fill-opacity": "1",
+            "label": true,
+            "label-position": "nw",
+            "color": "#a4a4a4"
+        },
+        "nodes": [
+            "6624ba40448dba9a",
+            "e2a3c7d2ebc6fbb1"
+        ],
+        "x": 974,
+        "y": 339,
+        "w": 292,
+        "h": 82
+    },
+    {
+        "id": "1dbb3c53a7f6453a",
+        "type": "junction",
+        "z": "8ec7ab420c8d15bb",
+        "x": 260,
+        "y": 700,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "cad6b3b3dbc68fb9",
+        "type": "http in",
+        "z": "8ec7ab420c8d15bb",
+        "name": "",
+        "url": "/green",
+        "method": "get",
+        "upload": false,
+        "swaggerDoc": "",
+        "x": 190,
+        "y": 700,
+        "wires": [
+            [
+                "566ef5684e64f1e0",
+                "832f59b444aa5819",
+                "89bc713caf19be30"
+            ]
+        ]
+    },
+    {
+        "id": "566ef5684e64f1e0",
+        "type": "http response",
+        "z": "8ec7ab420c8d15bb",
+        "name": "",
+        "statusCode": "",
+        "headers": {},
+        "x": 370,
+        "y": 700,
+        "wires": []
+    },
+    {
+        "id": "7bb6ac136a1612a5",
+        "type": "rpi-gpio out",
+        "z": "8ec7ab420c8d15bb",
+        "name": "",
+        "pin": "18",
+        "set": "",
+        "level": "0",
+        "freq": "",
+        "out": "out",
+        "bcm": true,
+        "x": 1080,
+        "y": 520,
+        "wires": []
+    },
+    {
+        "id": "6624ba40448dba9a",
+        "type": "rpi-gpio out",
+        "z": "8ec7ab420c8d15bb",
+        "g": "de4eb84c9b4b010f",
+        "name": "",
+        "pin": "17",
+        "set": "",
+        "level": "0",
+        "freq": "",
+        "out": "out",
+        "bcm": true,
+        "x": 1060,
+        "y": 380,
+        "wires": []
+    },
+    {
+        "id": "e2a3c7d2ebc6fbb1",
+        "type": "comment",
+        "z": "8ec7ab420c8d15bb",
+        "g": "de4eb84c9b4b010f",
+        "name": "green",
+        "info": "",
+        "x": 1190,
+        "y": 380,
+        "wires": []
+    },
+    {
+        "id": "832f59b444aa5819",
+        "type": "change",
+        "z": "8ec7ab420c8d15bb",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "false",
+                "tot": "bool"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 420,
+        "y": 580,
+        "wires": [
+            [
+                "7bb6ac136a1612a5"
+            ]
+        ]
+    },
+    {
+        "id": "89bc713caf19be30",
+        "type": "change",
+        "z": "8ec7ab420c8d15bb",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "true",
+                "tot": "bool"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 420,
+        "y": 460,
+        "wires": [
+            [
+                "6624ba40448dba9a"
+            ]
+        ]
+    },
+    {
+        "id": "59f6386a342c79d4",
+        "type": "http response",
+        "z": "8ec7ab420c8d15bb",
+        "name": "",
+        "statusCode": "",
+        "headers": {},
+        "x": 410,
+        "y": 140,
+        "wires": []
+    },
+    {
+        "id": "4ff06365251f749a",
+        "type": "http in",
+        "z": "8ec7ab420c8d15bb",
+        "name": "",
+        "url": "/red",
+        "method": "get",
+        "upload": false,
+        "swaggerDoc": "",
+        "x": 200,
+        "y": 140,
+        "wires": [
+            [
+                "59f6386a342c79d4",
+                "911283cd63240bb1",
+                "e8bd4c584e4ee883"
+            ]
+        ]
+    },
+    {
+        "id": "e8bd4c584e4ee883",
+        "type": "change",
+        "z": "8ec7ab420c8d15bb",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "true",
+                "tot": "bool"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 440,
+        "y": 320,
+        "wires": [
+            [
+                "7bb6ac136a1612a5"
+            ]
+        ]
+    },
+    {
+        "id": "911283cd63240bb1",
+        "type": "change",
+        "z": "8ec7ab420c8d15bb",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "false",
+                "tot": "bool"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 440,
+        "y": 220,
+        "wires": [
+            [
+                "6624ba40448dba9a"
+            ]
+        ]
+    },
+    {
+        "id": "4e9649b3f402ef73",
+        "type": "http in",
+        "z": "8ec7ab420c8d15bb",
+        "name": "",
+        "url": "/off",
+        "method": "get",
+        "upload": false,
+        "swaggerDoc": "",
+        "x": 140,
+        "y": 1020,
+        "wires": [
+            [
+                "555ee16ee2e3495f",
+                "6747453c4cd95829",
+                "b1a830b9a7cda9f0"
+            ]
+        ]
+    },
+    {
+        "id": "555ee16ee2e3495f",
+        "type": "http response",
+        "z": "8ec7ab420c8d15bb",
+        "name": "",
+        "statusCode": "",
+        "headers": {},
+        "x": 330,
+        "y": 1020,
+        "wires": []
+    },
+    {
+        "id": "6747453c4cd95829",
+        "type": "change",
+        "z": "8ec7ab420c8d15bb",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "false",
+                "tot": "bool"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 380,
+        "y": 900,
+        "wires": [
+            [
+                "7bb6ac136a1612a5"
+            ]
+        ]
+    },
+    {
+        "id": "b1a830b9a7cda9f0",
+        "type": "change",
+        "z": "8ec7ab420c8d15bb",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "false",
+                "tot": "bool"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 380,
+        "y": 780,
+        "wires": [
+            [
+                "6624ba40448dba9a"
+            ]
+        ]
+    }
+]

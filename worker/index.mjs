@@ -56,22 +56,32 @@ import * as http from "http";
     )[1][2];
 
     console.log("color is ", color);
-    if (color === "green") {
-      http.get("http://localhost:1880/green/", (res) => {
-        console.log(
-          "Node-Red: hit green endpoint. response code: ",
-          res.statusCode
-        );
-      });
-    }
 
-    if (color === "red") {
-      http.get("http://localhost:1880/red/", (res) => {
-        console.log(
-          "Node-red: hit red endpoint. response code: ",
-          res.statusCode
-        );
-      });
+    switch (color) {
+      case "green":
+        http.get("http://localhost:1880/green/", (res) => {
+          console.log(
+            "Node-Red: hit green endpoint. response code: ",
+            res.statusCode
+          );
+        });
+        break;
+      case "red":
+        http.get("http://localhost:1880/red/", (res) => {
+          console.log(
+            "Node-red: hit red endpoint. response code: ",
+            res.statusCode
+          );
+        });
+        break;
+      case "off":
+        http.get("http://localhost:1880/off/", (res) => {
+          console.log(
+            "Node-red: hit off endpoint. response code: ",
+            res.statusCode
+          );
+        });
+        break;
     }
   });
 
